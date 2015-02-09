@@ -29,6 +29,13 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
 
 
+
+TEMPLATE_DIRS=(
+    '/home/mayada/django/Blog_project/blog/templates',
+    '/home/mayada/django/Blog_project/Blog_project/templates',
+    )
+
+
 # Application definition
 
 INSTALLED_APPS = (
@@ -57,7 +64,10 @@ ROOT_URLCONF = 'Blog_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            '/home/mayada/django/Blog_project/blog/templates',
+            '/home/mayada/django/Blog_project/Blog_project/templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
