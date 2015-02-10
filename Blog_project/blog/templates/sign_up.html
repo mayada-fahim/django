@@ -1,2 +1,23 @@
-sign up page
 {% extends 'base.html'%}
+
+{% block main %}
+
+		<h1> Register with Blog</h1>
+		<ul>
+			<form method="post" action="/validate/">
+			{%csrf_token%}
+			<li>Name: <input type="text" name="username"/></li>
+			<br>
+			<li> Password: <input type="password" name='password' /></li>			
+			<br>
+			<li> re-password: <input type="password" name='re-password'/></li>	
+			<br>
+			<li>E-mail: <input type="text" name="mail" />ex:example@example.com</li> 
+		</ul>
+		<input type="submit" name="submit" value="Register"/>
+		<input type="submit" name="submit" value="Register with facebook"/>
+		</form>
+		<div>{{message}}</div>
+	</body>
+
+{%endblock%}

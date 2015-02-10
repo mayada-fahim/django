@@ -15,6 +15,8 @@ class Comment(models.Model):
 	comment_type=models.CharField(max_length=10)
 	
 	#post = models.ForeignKey(Post) #after creating model post 
-class User(models.Model):
-    username = models.CharField(max_length=100)
-    password = models.CharField(max_length=100)
+class user_data(models.Model):
+	user_name=models.CharField(max_length=100,unique=True,primary_key=True)
+	user_password=models.CharField(max_length=100)
+	user_mail=models.EmailField(max_length=75,unique=True)
+	user_status=models.BooleanField(default=False)

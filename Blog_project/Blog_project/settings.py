@@ -31,8 +31,8 @@ ALLOWED_HOSTS = []
 
 
 TEMPLATE_DIRS=(
-    '/home/mayada/django/Blog_project/blog/templates',
-    '/home/mayada/django/Blog_project/Blog_project/templates',
+    '/home/yomna/Desktop/django/Blog_project/blog/templates',
+    '/home/yomna/Desktop/django/Blog_project/Blog_project/templates',
     )
 
 
@@ -51,7 +51,7 @@ INSTALLED_APPS = (
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -65,8 +65,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            '/home/mayada/django/Blog_project/blog/templates',
-            '/home/mayada/django/Blog_project/Blog_project/templates',
+            '/home/yomna/Desktop/django/Blog_project/blog/templates',
+            '/home/yomna/Desktop/django/Blog_project/Blog_project/templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -94,7 +94,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'Blog',
         'USER': 'root',
-        'PASSWORD': '12345',
+        'PASSWORD': '123456',
         'HOST':'localhost',
     }
 }
