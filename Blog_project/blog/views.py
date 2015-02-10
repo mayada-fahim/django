@@ -14,9 +14,19 @@ def index(request):
 
 	return HttpResponse(comment_name)
 	#return render(request,'comment.html')
-def comment_text(request):
-	#return HttpResponse("i am here")
-	return render(request,'comment.html')
+def comment(request,post_id):
+	#post = get_object_or_404(Post,pk=post_id)
+
+	comment_name=request.POST['commentname']
+	comment_object=Comment(comment_text=comment_name,comment_type="article",post_id_id=post_id)
+	comment_object.save();
+	post = get_object_or_404(Post,pk=post_id)
+	imageUrl= str(post.post_image)
+	imageName = (imageUrl.split('/'))[3]
+	#return HttpResponse(post_id)
+	context = {'imageName':imageName,'article':post,'post_id':post_id}
+	return render(request,'article.html',context)
+	#return HttpResponse(comment_name)
 
 def home(request):
 	posts = Post.objects.all()
@@ -49,8 +59,14 @@ def sign_in(request):
 	return render(request,'sign_in.html')
 	
 	
-def articles(request):
-	return render(request,'article.html')
+def articles(request,post_id):
+	post = get_object_or_404(Post,pk=post_id)
+	imageUrl= str(post.post_image)
+	imageName = (imageUrl.split('/'))[3]
+
+	context = {'imageName':imageName,'article':post,'post_id':post_id}
+	return render(request,'article.html',context)
+	
 def sign_up(request):
 	return render(request,'sign_up.html')
 

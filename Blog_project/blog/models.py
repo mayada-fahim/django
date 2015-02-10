@@ -14,7 +14,7 @@ class Comment(models.Model):
 	comment_text = models.CharField(max_length=250)
 	comment_type=models.CharField(max_length=10)
 	
-	#post = models.ForeignKey(Post) #after creating model post 
+	post_id = models.ForeignKey(Post,default=1) #after creating model post 
 class User(models.Model):
     username = models.CharField(max_length=100)
     password = models.CharField(max_length=100)
