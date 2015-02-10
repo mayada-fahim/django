@@ -8,7 +8,7 @@ urlpatterns = [
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^index/$','blog.views.index'),
-    url(r'^comment/$','blog.views.comment_text'),
+   
 	url(r'^home/$','blog.views.home'),
     url(r'^home/login_test/$','blog.views.login_test'),
 	url(r'^sign_in/$','blog.views.sign_in'),
