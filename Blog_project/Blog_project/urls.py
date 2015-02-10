@@ -14,7 +14,13 @@ urlpatterns = [
 	url(r'^sign_in/$','blog.views.sign_in'),
 	url(r'^article/$','blog.views.articles'),
 	url(r'^sign_up/$','blog.views.sign_up'),
+
     url(r'^validate/$','blog.views.validate'),
+
+    url(r'^article/get/(?P<post_id>\d+)/$','blog.views.articles'),
+    url(r'^comment/(?P<post_id>\d+)/$','blog.views.comment'),
+
+
 
     #url(r'^index/(?P<post_id>\d+)/$','blog.views.index'),
     # another url here index/post_id to determine which post

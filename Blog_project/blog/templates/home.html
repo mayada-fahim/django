@@ -129,10 +129,24 @@ window.onload = init;
 
 	{% if article.published == 1%}
 
-			<li><a href="/post/get/{{post.id}}/" >{{article.post_text}}</a></li>
+
+
+
+
+
+
+<div>
+	<ul>
+			<li>{{article.post_text}}</li>
 			<li>{{article.post_date}}</li>
 			<li>{{article.post_image}}</li>
 			<li>{{article.post_like}}</li>
+			<br>
+			<li>{{article.id}}</li>
+			<li><a href="/article/get/{{article.id}}">More details</a></li>
+		</ul>
+	</div>
+
 
 	{% endif %}
 {% endfor %}
