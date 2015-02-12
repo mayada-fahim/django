@@ -10,14 +10,16 @@ urlpatterns = [
     url(r'^index/$','blog.views.index'),
    
 	url(r'^home/$','blog.views.home'),
-    url(r'^home/login_test/$','blog.views.login_test'),
+    url(r'^home/get/(?P<page_id>\d+)/$','blog.views.page'),
+    
 	url(r'^sign_in/$','blog.views.sign_in'),
 	url(r'^article/$','blog.views.articles'),
 	url(r'^sign_up/$','blog.views.sign_up'),
 
     url(r'^validate/$','blog.views.validate'),
 
-    url(r'^article/get/(?P<post_id>\d+)/$','blog.views.articles'),
+   # url(r'^article/get/(?P<post_id>\d+)/$','blog.views.articles'),
+    url(r'^article/get/(?P<page_id>\d+)/(?P<post_id>\d+)/$','blog.views.articles'),
     url(r'^comment/(?P<post_id>\d+)/$','blog.views.comment'),
 
 

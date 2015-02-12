@@ -1,12 +1,35 @@
 {% extends 'base.html'%}
 
 {% block main %}
-	<form  method='post' action='/home/login_test/'>
+
+	<form  method='post' action='/sign_in/login_test/'>
 	{% csrf_token %}
 	<li> username <input type="text" name='username'/></li>
 	<li> password <input type="password" name='password'/></li>
+	<li>Remember me <input class="rad" type="radio" name="check1" /> <li>
+	<li>forget me <input class="rad" type="radio" name="check2" /> </li>
 	<li>  <input type="submit" value="login"/> </li>
-	<li> Remember me <input type="checkbox" name="check_box"/> </li>
 	</form>
+ 
+<script type="text/javascript">
+
+
+var check = document.getElementsByClassName("rad");
+
+check[0].checked = true;
+check[1].checked = false;
+
+check[0].onclick=function(){
+check[0].checked = true;
+check[1].checked = false;
+};
+check[1].onclick=function(){
+	check[1].checked = true;
+	check[0].checked = false;
+};
+
+</script>
+
+
 {%endblock%}
 

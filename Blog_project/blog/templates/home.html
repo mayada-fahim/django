@@ -1,11 +1,16 @@
+
 {% extends 'base.html'%}
 {% load static %}
 
 {% block main %}
+{{pages_count}}
+mayadaaa
+
 <style>
 .container{
+	margin-left: 200px;
 	width:800px;
-	height:350px;
+	height:300px;
 	padding:20px;
 	border:1px solid gray;
 	-webkit-box-sizing:border-box;
@@ -28,8 +33,35 @@
 	max-width: 100%;
 	float:left;
 	list-style: none;
-	left: 0;
+	left: 10;
 }
+
+#articles_container {	
+	width: 1230px;
+	background-color: black;
+	margin-left: 20px;
+	position: relative;
+	margin-top: 20px;
+	border-radius: 5px;
+	border: 10px solid;
+	border-color: white;
+}
+
+.article{
+
+	width: 1200px;
+	height: 300px;
+	border-color: white;
+	border: 5px solid;
+
+
+}
+.image{
+	margin-top: 10px;
+	float: left;
+	width: 600px;
+	}
+
 </style>
 
 <script>
@@ -111,49 +143,59 @@ window.onload = init;
 	<div class="container">
 			<div class="image-slider-wrapper">
 				<ul id="image_slider">
-					<li><img src="https://dl.dropboxusercontent.com/u/65639888/image/1.jpg"></li>
-					<li><img src="https://dl.dropboxusercontent.com/u/65639888/image/4.jpg"></li>
-					<li><img src="https://dl.dropboxusercontent.com/u/65639888/image/5.jpg"></li>
-					<li><img src="https://dl.dropboxusercontent.com/u/65639888/image/1.jpg"></li>
-					<li><img src="https://dl.dropboxusercontent.com/u/65639888/image/4.jpg"></li>
-					<li><img src="https://dl.dropboxusercontent.com/u/65639888/image/5.jpg"></li>
+					{%for image in images%}
+					 {%if forloop.counter <= 4 %}
+					<li><img src="{% static 'images/article/' %}{{image}}" height=260px, width=800px></li>
+                       {%endif%}
+					{%endfor%}
 				</ul>			
 				<div class="pager">
 				</div>
 			</div>
 		</div>
 
-
-
+<div id="articles_container">
+	{% with x=1 %}
 {% for article in articles %}
 
 	{% if article.published == 1%}
 
+<div class="article">
+	<div class="image">
+		    <h3><a href="/article/get/{{article.id}}">{{article.post_title}}</a></h3>
+			{{article.post_date}}
+			<p>{{article.post_text|truncatechars:250}}</p>
 
-
-
-
-
-
-<div>
-	<ul>
-			<li>{{article.post_text}}</li>
-			<li>{{article.post_date}}</li>
-			<li>{{article.post_image}}</li>
-			<li>{{article.post_like}}</li>
-			<br>
-			<li>{{article.id}}</li>
-			<li><a href="/article/get/{{article.id}}">More details</a></li>
-		</ul>
+			<a href="/article/get/{{article.id}}">More details</a>
+		
+	</div>
+	<div class="image">	
+		    <img src="/static/images/article/{{article.id}}.jpg" width=300px,height=270px>
+			<br/>
+			
+		
+		
 	</div>
 
-
+</div>
 	{% endif %}
+	
 {% endfor %}
 
 
-{%if message%}
-	{{message}}
-{%endif%}
+
+{%endwith%}
+
+</div>
+{%for pages in pages_count%}
+<div>
+
+<h2><a href="/home/get/{{pages}}/">{{pages}}</a></h2>
+
+</div>
+{%endfor%}
+
 
 {%endblock%}
+
+

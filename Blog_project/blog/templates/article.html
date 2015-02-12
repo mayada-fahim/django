@@ -3,14 +3,17 @@ article page
 {% load static %}
 
 {% block main %}
+<h2>{{article.post_title}}</h2>
+{{ article.post_date }}
+<img src="{% static 'images/article/' %}{{imageName}}" width=600px , heigth=300px ></img>
 <p>{{ article.post_text }}</p>
-<img src="{% static 'images/article/' %}{{imageName}}" width=200px , heigth=300px></img>
+
 {% if article.comment_set.all %}
-				<ul>
+				
 					
 				{% for comment in article.comment_set.all %}
 				<div>
-					<li>{{comment.comment_text}}</li>
+					{{comment.comment_text}}
 				</div>
 				<br>
 				{%endfor%}
@@ -21,12 +24,13 @@ article page
 				<b>No Comments</b>
 				
 			{% endif %}
+
 <div>
 				add your comment here
 				{{article.id}}
-	         <form method="POST" action="/comment/{{article.id}}/">
+	         <form method="POST" action="/article/get/{{article.id}}/">
 	         	{% csrf_token %}
 	
-	       <input type='textarea' id='commentField' name='commentname'/>
+	       <input type='textarea' id='commentField' name='commentnamee'/>
 	      </div>
 {%endblock%}
